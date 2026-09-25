@@ -834,63 +834,72 @@ $$('a[href^="#"]').forEach(anchor => {
 // ════════════════════════════════════════════════════════════════
 //  12. CONTACT FORM
 // ════════════════════════════════════════════════════════════════
-async function handleFormSubmit(e) {
+function handleFormSubmit(e) {
   e.preventDefault();
+  const form = e.target;
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+
   const btn = $('#submitBtn');
   const text = $('#submitText');
   const success = $('#formSuccess');
 
-  const form = e.target;
-  const nameVal = form.name.value;
-  const emailVal = form.email.value;
-  const messageVal = form.message.value;
-
   gsap.to(btn, { scale: 0.97, duration: 0.1 });
-  text.textContent = 'Sending...';
+  text.textContent = 'Opening Email...';
 
-  try {
-    const formData = new FormData(form);
-    formData.append("_subject", `New Portfolio Message from ${nameVal}`);
-    formData.append("_template", "table");
+  const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+  const body = encodeURIComponent(`Hello Antariksh,\n\nName: ${name}\nClient Email: ${email}\n\nProject Message:\n${message}\n\nBest regards,\n${name}`);
 
-    const response = await fetch("https://formsubmit.co/ajax/techg5847@gmail.com", {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+  // Web Gmail Compose URL
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=techg5847@gmail.com&su=${subject}&body=${body}`;
 
-    if (response.ok) {
-      gsap.to(btn, { scale: 1, duration: 0.2 });
-      text.textContent = 'Send Message';
-      success.textContent = "✓ Message sent! Check your email inbox (techg5847@gmail.com).";
+  setTimeout(() => {
+    gsap.to(btn, { scale: 1, duration: 0.2 });
+    text.textContent = 'Send Message';
+    
+    // Open Gmail web compose window
+    window.open(gmailUrl, '_blank');
+
+    if (success) {
+      success.textContent = "✓ Opening Gmail to send message to techg5847@gmail.com!";
       success.style.color = "#10b981";
       success.classList.add('show');
       gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
-      form.reset();
-    } else {
-      throw new Error('Network response was not ok');
     }
-  } catch (err) {
-    // Direct Mailto Fallback
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${nameVal}`);
-    const body = encodeURIComponent(`Name: ${nameVal}\nEmail: ${emailVal}\n\nMessage:\n${messageVal}`);
-    window.location.href = `mailto:techg5847@gmail.com?subject=${subject}&body=${body}`;
+    form.reset();
 
-    gsap.to(btn, { scale: 1, duration: 0.2 });
-    text.textContent = 'Send Message';
-    success.textContent = "✓ Opening your email client to send message to techg5847@gmail.com";
-    success.style.color = "#a78bfa";
-    success.classList.add('show');
-  }
+    setTimeout(() => {
+      if (success) {
+        gsap.to(success, {
+          opacity: 0, duration: 0.4,
+          onComplete: () => success.classList.remove('show')
+        });
+      }
+    }, 6000);
+  }, 400);
+}
 
-  setTimeout(() => {
-    gsap.to(success, {
-      opacity: 0, duration: 0.4,
-      onComplete: () => success.classList.remove('show')
-    });
-  }, 6000);
+function copyEmailAddress(e) {
+  if (e) e.preventDefault();
+  const email = 'techg5847@gmail.com';
+  navigator.clipboard.writeText(email).then(() => {
+    const success = $('#formSuccess');
+    if (success) {
+      success.textContent = "✓ Copied techg5847@gmail.com to clipboard!";
+      success.style.color = "#06b6d4";
+      success.classList.add('show');
+      gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+      setTimeout(() => {
+        gsap.to(success, {
+          opacity: 0, duration: 0.4,
+          onComplete: () => success.classList.remove('show')
+        });
+      }, 4000);
+    }
+  }).catch(() => {
+    prompt("Copy email address:", email);
+  });
 }
 
 // ════════════════════════════════════════════════════════════════
