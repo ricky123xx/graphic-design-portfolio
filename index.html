@@ -806,7 +806,10 @@
           </div>
         </div>
         <div class="contact-right reveal-right">
-          <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/techg5847@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry for Antariksh!" />
             <div class="form-group">
               <label for="contactName">Your Name</label>
               <input type="text" id="contactName" name="name" placeholder="John Doe" required autocomplete="name" />
@@ -824,7 +827,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </button>
             <div class="form-success" id="formSuccess">
-              ✓ Message noted! I'll get back to you soon.
+              ✓ Message sent! I'll get back to you soon.
             </div>
           </form>
         </div>

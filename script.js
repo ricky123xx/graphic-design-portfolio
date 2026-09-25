@@ -1,22 +1,22 @@
-/* ============================================================
-   ANTARIKSH SAWARBANDHE PORTFOLIO — MAIN SCRIPT
+﻿/* ============================================================
+   ANTARIKSH SAWARBANDHE PORTFOLIO â€” MAIN SCRIPT
    Three.js Hero | GSAP Scroll Animations | Cursor | Magnetic
    ============================================================ */
 
 'use strict';
 
-// ─── GSAP Plugin Registration ───────────────────────────────────
+// â”€â”€â”€ GSAP Plugin Registration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-// ─── UTILITY ────────────────────────────────────────────────────
+// â”€â”€â”€ UTILITY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 const lerp = (a, b, t) => a + (b - a) * t;
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  1. CUSTOM CURSOR
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const cursorOuter = $('#cursorOuter');
 const cursorDot   = $('#cursorDot');
 let mouseX = 0, mouseY = 0;
@@ -50,9 +50,9 @@ document.addEventListener('mouseout', e => {
   }
 });
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  2. NAVBAR
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const navbar   = $('#navbar');
 const hamburger = $('#hamburger');
 const mobileMenu = $('#mobileMenu');
@@ -74,9 +74,9 @@ $$('.mob-link').forEach(link => {
   });
 });
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  3. THREE.JS HERO SCENE
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initHeroScene() {
   const canvas = $('#heroCanvas');
   if (!canvas || typeof THREE === 'undefined') return;
@@ -90,7 +90,7 @@ $$('.mob-link').forEach(link => {
   const camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
   camera.position.set(0, 0, 12);
 
-  // ── Lights ──
+  // â”€â”€ Lights â”€â”€
   const ambientLight = new THREE.AmbientLight(0x7c3aed, 0.5);
   scene.add(ambientLight);
   const pointLight1 = new THREE.PointLight(0x7c3aed, 3, 30);
@@ -103,7 +103,7 @@ $$('.mob-link').forEach(link => {
   pointLight3.position.set(0, -5, -5);
   scene.add(pointLight3);
 
-  // ── Materials ──
+  // â”€â”€ Materials â”€â”€
   const matViolet = new THREE.MeshStandardMaterial({
     color: 0x7c3aed, wireframe: false, metalness: 0.3, roughness: 0.4,
     transparent: true, opacity: 0.85,
@@ -127,7 +127,7 @@ $$('.mob-link').forEach(link => {
     metalness: 0.9, roughness: 0.1,
   });
 
-  // ── Geometry Objects ──
+  // â”€â”€ Geometry Objects â”€â”€
   const objects = [];
 
   function addObj(geo, mat, x, y, z, rx = 0, ry = 0, rz = 0, scale = 1) {
@@ -193,7 +193,7 @@ $$('.mob-link').forEach(link => {
   const particles = new THREE.Points(particleGeo, particleMat);
   scene.add(particles);
 
-  // ── Mouse parallax ──
+  // â”€â”€ Mouse parallax â”€â”€
   let targetMouseX = 0, targetMouseY = 0;
   let currentMouseX = 0, currentMouseY = 0;
 
@@ -202,7 +202,7 @@ $$('.mob-link').forEach(link => {
     targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  // ── Animation loop ──
+  // â”€â”€ Animation loop â”€â”€
   let time = 0;
   function animate() {
     requestAnimationFrame(animate);
@@ -255,7 +255,7 @@ $$('.mob-link').forEach(link => {
   }
   animate();
 
-  // ── Resize ──
+  // â”€â”€ Resize â”€â”€
   window.addEventListener('resize', () => {
     const w = canvas.parentElement.clientWidth;
     const h = canvas.parentElement.clientHeight;
@@ -265,9 +265,9 @@ $$('.mob-link').forEach(link => {
   });
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  4. HERO TEXT ANIMATIONS
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initHeroAnimations() {
   const tl = gsap.timeline({ delay: 0.3 });
 
@@ -332,9 +332,9 @@ $$('.mob-link').forEach(link => {
   }
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  5. SCROLL REVEAL (IntersectionObserver)
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initScrollReveal() {
   const revealEls = $$('.reveal-up, .reveal-left, .reveal-right');
 
@@ -359,9 +359,9 @@ $$('.mob-link').forEach(link => {
   revealEls.forEach(el => observer.observe(el));
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  6. COUNTER ANIMATION
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initCounters() {
   const counters = $$('[data-target]');
 
@@ -392,9 +392,9 @@ $$('.mob-link').forEach(link => {
   counters.forEach(el => observer.observe(el));
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  7. MAGNETIC BUTTONS
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initMagnetic() {
   $$('[data-magnetic]').forEach(el => {
     el.addEventListener('mousemove', e => {
@@ -411,9 +411,9 @@ $$('.mob-link').forEach(link => {
   });
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  8. TILT CARDS
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initTilt() {
   $$('.tilt-card').forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -439,23 +439,23 @@ $$('.mob-link').forEach(link => {
   });
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  9. PORTFOLIO GRID
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const portfolioData = [
   {
     id: 1, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'Best Laptop for Students — Thumbnail',
+    title: 'Best Laptop for Students â€” Thumbnail',
     image: 'images/project-thumbnail-laptop.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a high-CTR YouTube thumbnail for a tech review video targeting students looking for laptops under Rs 60,000.',
     process: 'Built a dark moody studio-desk atmosphere with the subject in a thoughtful pose. Applied bold grunge yellow typography for "STUDENTS" as the hero word. Added category tags (Performance, Gaming, Video Editing, College Use, Best Value) and a price hook bubble "Under Rs 60,000?" for strong visual storytelling.',
-    result: 'A cinematic, attention-grabbing thumbnail with strong visual hierarchy — dominant subject word supported by price hook and quick-scan category tags.',
+    result: 'A cinematic, attention-grabbing thumbnail with strong visual hierarchy â€” dominant subject word supported by price hook and quick-scan category tags.',
     color: '#f59e0b',
   },
   {
     id: 2, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'Best Laptop 2026 — Tech Review Thumbnail',
+    title: 'Best Laptop 2026 â€” Tech Review Thumbnail',
     image: 'images/thumb-best-laptop-2026.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a bold, scroll-stopping YouTube thumbnail for a 2026 laptop review targeting tech enthusiasts.',
@@ -465,7 +465,7 @@ const portfolioData = [
   },
   {
     id: 3, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'A Day in My College Life — Vlog Thumbnail',
+    title: 'A Day in My College Life â€” Vlog Thumbnail',
     image: 'images/thumb-college-life.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a relatable, emotionally resonant YouTube thumbnail for a college life vlog targeting students in Nagpur.',
@@ -475,17 +475,17 @@ const portfolioData = [
   },
   {
     id: 4, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'Street Food — Food Vlog Thumbnail',
+    title: 'Street Food â€” Food Vlog Thumbnail',
     image: 'images/thumb-street-food.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a vibrant, appetite-triggering YouTube thumbnail for a street food vlog.',
-    process: 'Used an extreme close-up food photo as the full-bleed hero. Applied bold grunge brush-stroke text — "STREET" in white, "FOOD" in yellow. Added chalkboard sign "Good Food Good Mood" and tagline "Spicy - Tasty - Must Try" for visual punch.',
-    result: 'An energetic, visually rich thumbnail that makes viewers hungry and curious at first glance — strong colour, texture and type combination.',
+    process: 'Used an extreme close-up food photo as the full-bleed hero. Applied bold grunge brush-stroke text â€” "STREET" in white, "FOOD" in yellow. Added chalkboard sign "Good Food Good Mood" and tagline "Spicy - Tasty - Must Try" for visual punch.',
+    result: 'An energetic, visually rich thumbnail that makes viewers hungry and curious at first glance â€” strong colour, texture and type combination.',
     color: '#ef4444',
   },
   {
     id: 5, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'Suresh Bhau — Cinematic Marathi Thumbnail',
+    title: 'Suresh Bhau â€” Cinematic Marathi Thumbnail',
     image: 'images/thumb-suresh-bhau.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a cinematic, dramatic thumbnail for a Marathi-language YouTube video with a film/investigation narrative.',
@@ -495,7 +495,7 @@ const portfolioData = [
   },
   {
     id: 6, category: 'youtube', categoryLabel: 'YouTube Design',
-    title: 'Goa Trip — Budget Travel Vlog Thumbnail',
+    title: 'Goa Trip â€” Budget Travel Vlog Thumbnail',
     image: 'images/thumb-goa-trip.jpg',
     tools: ['Adobe Photoshop'],
     objective: 'Design a bright, inviting and energetic YouTube thumbnail for a Goa budget travel vlog.',
@@ -505,7 +505,7 @@ const portfolioData = [
   },
   {
     id: 7, category: 'uiux', categoryLabel: 'UI/UX Design',
-    title: 'Learno — Online Learning Platform UI',
+    title: 'Learno â€” Online Learning Platform UI',
     image: 'images/project-learno-uiux.jpg',
     tools: ['Figma'],
     objective: 'Design a clean, modern landing page for an online learning platform aimed at students and working professionals.',
@@ -515,17 +515,17 @@ const portfolioData = [
   },
   {
     id: 8, category: 'uiux', categoryLabel: 'UI/UX Design',
-    title: 'FilmCraft Studio — Creative Agency Website UI',
+    title: 'FilmCraft Studio â€” Creative Agency Website UI',
     image: 'images/project-filmcraft-uiux.jpg',
     tools: ['Figma'],
     objective: 'Design a premium dark-themed website for a creative video production studio targeting modern brands.',
     process: 'Used deep dark background with purple/violet accents and cinematic hero imagery of a creator at their editing setup. Designed service grid (Video Production, Graphic Design, Social Media Content, Editing and VFX), featured work cards with play overlays and strong typographic contrast.',
-    result: 'A premium dark creative agency website UI — hero, services, featured work and contact — fully ready for developer handoff.',
+    result: 'A premium dark creative agency website UI â€” hero, services, featured work and contact â€” fully ready for developer handoff.',
     color: '#7c3aed',
   },
   {
     id: 9, category: 'uiux', categoryLabel: 'UI/UX Design',
-    title: 'TechZone — E-Commerce Gadget Store UI',
+    title: 'TechZone â€” E-Commerce Gadget Store UI',
     image: 'images/project-techzone-uiux.jpg',
     tools: ['Figma'],
     objective: 'Design a complete e-commerce website UI for a tech gadgets store with product discovery and promotional sections.',
@@ -535,7 +535,7 @@ const portfolioData = [
   },
   {
     id: 10, category: 'uiux', categoryLabel: 'UI/UX Design',
-    title: 'Brewly — Premium Coffee Brand Website UI',
+    title: 'Brewly â€” Premium Coffee Brand Website UI',
     image: 'images/project-brewly-uiux.jpg',
     tools: ['Figma'],
     objective: 'Design a warm, premium website for a specialty coffee brand focused on storytelling and product showcase.',
@@ -545,13 +545,13 @@ const portfolioData = [
   },
   {
     id: 11, category: 'branding', categoryLabel: 'Branding',
-    title: 'INVENTOMANIA — Event Branding & Creative Design',
+    title: 'INVENTOMANIA â€” Event Branding & Creative Design',
     image: 'images/inventomania-campus-experia.jpg',
     image2: 'images/inventomania-matlab-mavericks.jpg',
     tools: ['Adobe Photoshop', 'Canva', 'Illustrator'],
     objective: 'Create complete promotional event creatives for INVENTOMANIA-11, a college technical fest at St. Vincent Pallotti College of Engineering & Technology, Nagpur.',
-    process: 'Designed individual event posters for each sub-event with a consistent nautical/adventure visual theme — dark stormy sea, tall ships and dramatic lighting. Each poster carries the INVENTOMANIA-11 branding, event-specific identity, registration info, QR code and coordinator details.',
-    result: 'A full set of branded event creatives used across physical and digital promotion — Campus Experia (GD round) and MATLAB Mavericks (technical event) posters delivered with complete event information.',
+    process: 'Designed individual event posters for each sub-event with a consistent nautical/adventure visual theme â€” dark stormy sea, tall ships and dramatic lighting. Each poster carries the INVENTOMANIA-11 branding, event-specific identity, registration info, QR code and coordinator details.',
+    result: 'A full set of branded event creatives used across physical and digital promotion â€” Campus Experia (GD round) and MATLAB Mavericks (technical event) posters delivered with complete event information.',
     color: '#7c3aed',
   },
   {
@@ -580,7 +580,7 @@ const portfolioData = [
   },
   {
     id: 14, category: 'video', categoryLabel: 'Video Editing',
-    title: 'Gose Dam Bhandara Pauni Water Sight — Travel & Cinematic Reel',
+    title: 'Gose Dam Bhandara Pauni Water Sight â€” Travel & Cinematic Reel',
     image: 'https://img.youtube.com/vi/JLtaOS0UBQw/hqdefault.jpg',
     youtubeId: 'JLtaOS0UBQw',
     videoUrl: 'https://youtu.be/JLtaOS0UBQw?si=Bz-upBL6DO6E5O1h',
@@ -783,9 +783,9 @@ const portfolioData = [
   );
 })();
 
-// ════════════════════════════════════════════════════════════════
-//  10. FEATURED PROJECT — DRAG SCROLL GALLERY
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+//  10. FEATURED PROJECT â€” DRAG SCROLL GALLERY
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initFeaturedGallery() {
   const track = $('#featuredTrack');
   if (!track) return;
@@ -819,9 +819,9 @@ const portfolioData = [
   track.addEventListener('mouseleave', () => gsap.globalTimeline.resume());
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  11. NAVBAR SMOOTH SCROLL
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 $$('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     const target = $(anchor.getAttribute('href'));
@@ -831,62 +831,59 @@ $$('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  12. CONTACT FORM
-// ════════════════════════════════════════════════════════════════
-function handleFormSubmit(e) {
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+async function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
-
-  const btn = $('#submitBtn');
-  const text = $('#submitText');
-  const success = $('#formSuccess');
+  const btn = $("#submitBtn");
+  const text = $("#submitText");
+  const success = $("#formSuccess");
 
   gsap.to(btn, { scale: 0.97, duration: 0.1 });
-  text.textContent = 'Opening Email...';
+  text.textContent = "Sending Message...";
 
-  const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-  const body = encodeURIComponent(`Hello Antariksh,\n\nName: ${name}\nClient Email: ${email}\n\nProject Message:\n${message}\n\nBest regards,\n${name}`);
+  const formData = new FormData(form);
 
-  // Web Gmail Compose URL
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=techg5847@gmail.com&su=${subject}&body=${body}`;
-
-  setTimeout(() => {
-    gsap.to(btn, { scale: 1, duration: 0.2 });
-    text.textContent = 'Send Message';
-    
-    // Open Gmail web compose window
-    window.open(gmailUrl, '_blank');
-
-    if (success) {
-      success.textContent = "✓ Opening Gmail to send message to techg5847@gmail.com!";
-      success.style.color = "#10b981";
-      success.classList.add('show');
-      gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
-    }
-    form.reset();
-
-    setTimeout(() => {
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/techg5847@gmail.com", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+    });
+    const data = await response.json();
+    if (response.ok && (data.success === "true" || data.success === true)) {
+      gsap.to(btn, { scale: 1, duration: 0.2 });
+      text.textContent = "Send Message";
       if (success) {
-        gsap.to(success, {
-          opacity: 0, duration: 0.4,
-          onComplete: () => success.classList.remove('show')
-        });
+        success.textContent = "✓ Message sent successfully to techg5847@gmail.com!";
+        success.style.color = "#10b981";
+        success.classList.add("show");
+        gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
       }
-    }, 6000);
-  }, 400);
+      form.reset();
+      setTimeout(() => {
+        if (success) {
+          gsap.to(success, { opacity: 0, duration: 0.4, onComplete: () => success.classList.remove("show") });
+        }
+      }, 6000);
+      return;
+    } else {
+      throw new Error("Fallback to direct submit");
+    }
+  } catch (err) {
+    text.textContent = "Submitting...";
+    form.submit();
+  }
 }
-
 function copyEmailAddress(e) {
   if (e) e.preventDefault();
   const email = 'techg5847@gmail.com';
   navigator.clipboard.writeText(email).then(() => {
     const success = $('#formSuccess');
     if (success) {
-      success.textContent = "✓ Copied techg5847@gmail.com to clipboard!";
+      success.textContent = "âœ“ Copied techg5847@gmail.com to clipboard!";
       success.style.color = "#06b6d4";
       success.classList.add('show');
       gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
@@ -902,9 +899,9 @@ function copyEmailAddress(e) {
   });
 }
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  13. GSAP SCROLL-TRIGGERED PARALLAX (Process + Hero)
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initScrollEffects() {
   // Process steps stagger
   gsap.fromTo('.process-step',
@@ -943,9 +940,9 @@ function copyEmailAddress(e) {
   });
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  14. HERO PARTICLES (CSS canvas sparkles)
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initHeroParticles() {
   const container = $('#heroParticles');
   if (!container) return;
@@ -976,9 +973,9 @@ function copyEmailAddress(e) {
   }
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  15. ACTIVE NAV HIGHLIGHT ON SCROLL
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initActiveNav() {
   const sections = $$('section[id]');
   const navLinks = $$('.nav-link');
@@ -996,9 +993,9 @@ function copyEmailAddress(e) {
   sections.forEach(s => observer.observe(s));
 })();
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  16. GSAP-POWERED WHY SECTION ENTRY
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 gsap.fromTo('.why-card',
   { opacity: 0, y: 40 },
   {
@@ -1007,9 +1004,9 @@ gsap.fromTo('.why-card',
   }
 );
 
-// ════════════════════════════════════════════════════════════════
-//  17. TOOLS SECTION — STAGGERED ENTRY
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+//  17. TOOLS SECTION â€” STAGGERED ENTRY
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 gsap.fromTo('.tool-card',
   { opacity: 0, scale: 0.85, y: 30 },
   {
@@ -1018,9 +1015,9 @@ gsap.fromTo('.tool-card',
   }
 );
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  18. SERVICE CARDS ENTRY
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 gsap.fromTo('.service-card',
   { opacity: 0, y: 50 },
   {
@@ -1029,9 +1026,9 @@ gsap.fromTo('.service-card',
   }
 );
 
-// ════════════════════════════════════════════════════════════════
-//  19. VIDEO PLAYER — PULSE ON ENTER
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+//  19. VIDEO PLAYER â€” PULSE ON ENTER
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 gsap.fromTo('#videoPlayerCard',
   { opacity: 0, scale: 0.95 },
   {
@@ -1040,9 +1037,9 @@ gsap.fromTo('#videoPlayerCard',
   }
 );
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  20. FOOTER REVEAL
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 gsap.fromTo('.footer-brand, .footer-links-col',
   { opacity: 0, y: 30 },
   {
@@ -1056,13 +1053,13 @@ console.log(
   'color: #a78bfa; font-size: 14px; font-weight: bold; letter-spacing: 2px;'
 );
 console.log(
-  '%cGraphic Designer • Visual Designer • Video Editor • Freelancer',
+  '%cGraphic Designer â€¢ Visual Designer â€¢ Video Editor â€¢ Freelancer',
   'color: #06b6d4; font-size: 11px;'
 );
 
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  21. INTERACTIVE YOUTUBE VIDEO SECTION
-// ════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 (function initVideoSection() {
   const mainVideoFrameWrap = document.getElementById('mainVideoFrameWrap');
   const mainVideoPlayBtn = document.getElementById('mainVideoPlayBtn');
@@ -1094,3 +1091,4 @@ console.log(
     });
   });
 })();
+
