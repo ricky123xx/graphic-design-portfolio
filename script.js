@@ -834,28 +834,63 @@ $$('a[href^="#"]').forEach(anchor => {
 // ════════════════════════════════════════════════════════════════
 //  12. CONTACT FORM
 // ════════════════════════════════════════════════════════════════
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
   const btn = $('#submitBtn');
   const text = $('#submitText');
   const success = $('#formSuccess');
 
+  const form = e.target;
+  const nameVal = form.name.value;
+  const emailVal = form.email.value;
+  const messageVal = form.message.value;
+
   gsap.to(btn, { scale: 0.97, duration: 0.1 });
   text.textContent = 'Sending...';
 
-  setTimeout(() => {
+  try {
+    const formData = new FormData(form);
+    formData.append("_subject", `New Portfolio Message from ${nameVal}`);
+    formData.append("_template", "table");
+
+    const response = await fetch("https://formsubmit.co/ajax/techg5847@gmail.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      gsap.to(btn, { scale: 1, duration: 0.2 });
+      text.textContent = 'Send Message';
+      success.textContent = "✓ Message sent! Check your email inbox (techg5847@gmail.com).";
+      success.style.color = "#10b981";
+      success.classList.add('show');
+      gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+      form.reset();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch (err) {
+    // Direct Mailto Fallback
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${nameVal}`);
+    const body = encodeURIComponent(`Name: ${nameVal}\nEmail: ${emailVal}\n\nMessage:\n${messageVal}`);
+    window.location.href = `mailto:techg5847@gmail.com?subject=${subject}&body=${body}`;
+
     gsap.to(btn, { scale: 1, duration: 0.2 });
     text.textContent = 'Send Message';
+    success.textContent = "✓ Opening your email client to send message to techg5847@gmail.com";
+    success.style.color = "#a78bfa";
     success.classList.add('show');
-    gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
-    e.target.reset();
-    setTimeout(() => {
-      gsap.to(success, {
-        opacity: 0, duration: 0.4,
-        onComplete: () => success.classList.remove('show')
-      });
-    }, 4000);
-  }, 1200);
+  }
+
+  setTimeout(() => {
+    gsap.to(success, {
+      opacity: 0, duration: 0.4,
+      onComplete: () => success.classList.remove('show')
+    });
+  }, 6000);
 }
 
 // ════════════════════════════════════════════════════════════════
