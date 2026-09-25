@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antariksh Sawarbandhe — Graphic Designer & Visual Designer</title>
+  <meta name="description" content="Antariksh Sawarbandhe is a Graphic Designer, Visual Designer, Video Editor and Freelancer from Nagpur with 4+ years of experience and 147+ client projects." />
+  <meta name="keywords" content="Graphic Designer, Visual Designer, Video Editor, Freelancer, Nagpur, Portfolio, Antariksh Sawarbandhe" />
+  <meta name="author" content="Antariksh Sawarbandhe" />
+  <meta property="og:title" content="Antariksh Sawarbandhe — Graphic Designer & Visual Designer" />
+  <meta property="og:description" content="Premium portfolio of Antariksh Sawarbandhe — Graphic Designer, Video Editor, Freelancer." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP + Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-outer" id="cursorOuter"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo magnetic" data-magnetic>
+        <span class="logo-bracket">[</span>AS<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link magnetic" data-magnetic>About</a></li>
+        <li><a href="#services" class="nav-link magnetic" data-magnetic>Services</a></li>
+        <li><a href="#portfolio" class="nav-link magnetic" data-magnetic>Work</a></li>
+        <li><a href="#video" class="nav-link magnetic" data-magnetic>Videos</a></li>
+        <li><a href="#process" class="nav-link magnetic" data-magnetic>Process</a></li>
+        <li><a href="#contact" class="nav-link magnetic" data-magnetic>Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-nav magnetic" data-magnetic>Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#services" class="mob-link">Services</a></li>
+        <li><a href="#portfolio" class="mob-link">Work</a></li>
+        <li><a href="#video" class="mob-link">Videos</a></li>
+        <li><a href="#process" class="mob-link">Process</a></li>
+        <li><a href="#contact" class="mob-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Available for freelance projects
+      </div>
+      <h1 class="hero-name" id="heroName">
+        <span class="hero-name-line" id="heroLine1">ANTARIKSH</span>
+        <span class="hero-name-line" id="heroLine2">SAWARBANDHE</span>
+      </h1>
+      <div class="hero-roles" id="heroRoles">
+        <span class="role-text" id="roleText">Graphic Designer</span>
+      </div>
+      <p class="hero-intro reveal-up" id="heroIntro">
+        I create engaging visual experiences through graphic design,<br class="br-hide" />
+        digital creatives, branding, thumbnails and video content.
+      </p>
+      <div class="hero-stats reveal-up" id="heroStats">
+        <div class="hero-stat">
+          <span class="stat-number">4+</span>
+          <span class="stat-label">Years</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-number">147+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-number">₹12K+</span>
+          <span class="stat-label">Earned</span>
+        </div>
+      </div>
+      <div class="hero-cta reveal-up" id="heroCta">
+        <a href="#portfolio" class="btn-primary magnetic" data-magnetic>
+          <span>View My Work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCLKsjuwTkm-m-7ZP7MumX9A" target="_blank" class="btn-secondary magnetic" data-magnetic>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-2.47 4.83 4.83 0 01-.39-3.39L8.95 6.69a4.83 4.83 0 01-2.47 3.77 4.83 4.83 0 01-3.39.39l5.86 6.48a4.83 4.83 0 012.47 3.77 4.83 4.83 0 01.39 3.39l6.48-5.86a4.83 4.83 0 013.77 2.47 4.83 4.83 0 01.39 3.39"/><path d="M10 15l5-3-5-3v6z"/><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+          Watch My Work
+        </a>
+        <a href="#contact" class="btn-ghost magnetic" data-magnetic>Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+    <!-- Floating 3D decorative elements -->
+    <div class="hero-float-card float-card-1">
+      <div class="float-card-icon">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#7c3aed" stroke-width="2"/><circle cx="16" cy="14" r="4" stroke="#a78bfa" stroke-width="2"/><path d="M8 26c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span>Photoshop</span>
+    </div>
+    <div class="hero-float-card float-card-2">
+      <div class="float-card-icon">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M6 6h8v8H6zM18 6h8v8H18zM6 18h8v8H6zM18 18h8v8H18z" stroke="#4f46e5" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <span>Figma</span>
+    </div>
+    <div class="hero-float-card float-card-3">
+      <div class="float-card-icon">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="18" rx="2" stroke="#06b6d4" stroke-width="2"/><path d="M8 8V6a2 2 0 012-2h12a2 2 0 012 2v2" stroke="#06b6d4" stroke-width="2"/><circle cx="16" cy="17" r="4" stroke="#06b6d4" stroke-width="2"/></svg>
+      </div>
+      <span>Camera</span>
+    </div>
+    <div class="hero-float-badge float-badge-1">CREATIVE DESIGN</div>
+    <div class="hero-float-badge float-badge-2">4+ YEARS</div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="section-label reveal-left">About Me</div>
+          <h2 class="section-title reveal-left">Crafting Visuals<br /><span class="gradient-text">That Tell Stories</span></h2>
+          <p class="about-text reveal-left">
+            I have 4+ years of hands-on experience in graphic design and visual content creation. I have worked on freelance projects, YouTube thumbnails, event creatives, promotional graphics, social media designs and digital content.
+          </p>
+          <p class="about-text reveal-left">
+            Through 147+ freelance client projects, I have learned how to understand client requirements, work with deadlines, take feedback and deliver visually engaging designs.
+          </p>
+          <p class="about-text reveal-left">
+            Along with graphic design, I also have experience in video editing and digital content creation.
+          </p>
+          <div class="about-location reveal-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Nagpur, Maharashtra, India
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="about-stats-grid">
+            <div class="about-stat-card reveal-up" data-delay="0">
+              <div class="about-stat-number" data-target="4">0</div>
+              <div class="about-stat-plus">+</div>
+              <div class="about-stat-label">Years Experience</div>
+              <div class="about-stat-sub">in Graphic Design</div>
+            </div>
+            <div class="about-stat-card reveal-up" data-delay="100">
+              <div class="about-stat-number" data-target="147">0</div>
+              <div class="about-stat-plus">+</div>
+              <div class="about-stat-label">Client Projects</div>
+              <div class="about-stat-sub">Freelance Delivered</div>
+            </div>
+            <div class="about-stat-card reveal-up" data-delay="200">
+              <div class="about-stat-number about-stat-rupee">₹12K</div>
+              <div class="about-stat-plus">+</div>
+              <div class="about-stat-label">Freelance Earned</div>
+              <div class="about-stat-sub">Real client revenue</div>
+            </div>
+            <div class="about-stat-card reveal-up" data-delay="300">
+              <div class="about-stat-number">∞</div>
+              <div class="about-stat-label">Creative Projects</div>
+              <div class="about-stat-sub">Personal & Academic</div>
+            </div>
+          </div>
+          <div class="about-visual reveal-up">
+            <div class="about-visual-inner">
+              <div class="av-ring av-ring-1"></div>
+              <div class="av-ring av-ring-2"></div>
+              <div class="av-ring av-ring-3"></div>
+              <div class="av-center">AS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">What I Do</div>
+        <h2 class="section-title reveal-up">Services I <span class="gradient-text">Offer</span></h2>
+        <p class="section-subtitle reveal-up">From concept to final deliverable — I handle the complete visual journey.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Graphic Design -->
+        <div class="service-card tilt-card reveal-up" data-delay="0">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="8" stroke="url(#g1)" stroke-width="2"/><path d="M14 24h20M24 14v20" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="6" stroke="url(#g1)" stroke-width="2"/><defs><linearGradient id="g1" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">Graphic Design</h3>
+          <ul class="sc-list">
+            <li>Posters & Banners</li>
+            <li>Social Media Creatives</li>
+            <li>Promotional Designs</li>
+            <li>Digital Graphics</li>
+          </ul>
+          <div class="sc-tag">Adobe Photoshop · Canva</div>
+        </div>
+        <!-- YouTube Design -->
+        <div class="service-card tilt-card reveal-up" data-delay="100">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="10" width="40" height="28" rx="6" stroke="url(#g2)" stroke-width="2"/><path d="M20 18l12 6-12 6V18z" fill="url(#g2)"/><defs><linearGradient id="g2" x1="4" y1="10" x2="44" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">YouTube Design</h3>
+          <ul class="sc-list">
+            <li>YouTube Thumbnails</li>
+            <li>Channel Graphics</li>
+            <li>Video Visuals</li>
+            <li>Promotional Content</li>
+          </ul>
+          <div class="sc-tag">Photoshop · After Effects</div>
+        </div>
+        <!-- Branding -->
+        <div class="service-card tilt-card reveal-up" data-delay="200">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="url(#g3)" stroke-width="2"/><path d="M24 12v12l8 4" stroke="url(#g3)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g3" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">Branding</h3>
+          <ul class="sc-list">
+            <li>Logo Concepts</li>
+            <li>Brand Visuals</li>
+            <li>Event Branding</li>
+            <li>Marketing Creatives</li>
+          </ul>
+          <div class="sc-tag">Illustrator · Photoshop</div>
+        </div>
+        <!-- Video Editing -->
+        <div class="service-card tilt-card reveal-up" data-delay="300">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="32" height="20" rx="4" stroke="url(#g4)" stroke-width="2"/><path d="M36 20l8-6v20l-8-6V20z" stroke="url(#g4)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="g4" x1="4" y1="14" x2="44" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">Video Editing</h3>
+          <ul class="sc-list">
+            <li>Reels & Short Videos</li>
+            <li>Promotional Videos</li>
+            <li>YouTube Videos</li>
+            <li>Motion Graphics</li>
+          </ul>
+          <div class="sc-tag">Premiere Pro · DaVinci · AE</div>
+        </div>
+        <!-- UI/UX Design -->
+        <div class="service-card tilt-card reveal-up" data-delay="400">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="8" stroke="url(#g5)" stroke-width="2"/><rect x="12" y="12" width="10" height="10" rx="2" stroke="url(#g5)" stroke-width="1.5"/><rect x="26" y="12" width="10" height="10" rx="2" stroke="url(#g5)" stroke-width="1.5"/><rect x="12" y="26" width="24" height="10" rx="2" stroke="url(#g5)" stroke-width="1.5"/><defs><linearGradient id="g5" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">UI/UX Design</h3>
+          <ul class="sc-list">
+            <li>Figma Designs</li>
+            <li>Landing Pages</li>
+            <li>App Interfaces</li>
+            <li>Website Visuals</li>
+          </ul>
+          <div class="sc-tag">Figma</div>
+        </div>
+        <!-- Content Creation -->
+        <div class="service-card tilt-card reveal-up" data-delay="500">
+          <div class="sc-glow"></div>
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 40V24L24 8l16 16v16H30V30h-12v10H8z" stroke="url(#g6)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="g6" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h3 class="sc-title">Digital Content</h3>
+          <ul class="sc-list">
+            <li>Social Media Posts</li>
+            <li>Event Creatives</li>
+            <li>Digital Campaigns</li>
+            <li>Visual Identity</li>
+          </ul>
+          <div class="sc-tag">Canva · Photoshop · Figma</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REAL WORK MARQUEE STRIP
+  ============================================================ -->
+  <div class="marquee-section">
+    <div class="marquee-label">
+      <span class="badge-dot"></span> Real Work — Thumbnails &amp; UI/UX Designs
+    </div>
+    <div class="marquee-track-wrap">
+      <div class="marquee-track" id="marqueeTrack">
+        <div class="marquee-item"><img src="images/project-thumbnail-laptop.jpg" alt="Best Laptop for Students Thumbnail" /><span>YouTube — Best Laptop for Students</span></div>
+        <div class="marquee-item"><img src="images/thumb-best-laptop-2026.jpg" alt="Best Laptop 2026 Thumbnail" /><span>YouTube — Best Laptop 2026</span></div>
+        <div class="marquee-item"><img src="images/thumb-college-life.jpg" alt="College Life Vlog Thumbnail" /><span>YouTube — A Day in My College Life</span></div>
+        <div class="marquee-item"><img src="images/thumb-street-food.jpg" alt="Street Food Thumbnail" /><span>YouTube — Street Food Vlog</span></div>
+        <div class="marquee-item"><img src="images/thumb-suresh-bhau.jpg" alt="Suresh Bhau Marathi Thumbnail" /><span>YouTube — Suresh Bhau Cinematic</span></div>
+        <div class="marquee-item"><img src="images/thumb-goa-trip.jpg" alt="Goa Trip Travel Thumbnail" /><span>YouTube — Goa Trip Travel Vlog</span></div>
+        <div class="marquee-item"><img src="images/project-learno-uiux.jpg" alt="Learno UI Design" /><span>UI/UX — Learno Platform</span></div>
+        <div class="marquee-item"><img src="images/project-filmcraft-uiux.jpg" alt="FilmCraft Studio UI" /><span>UI/UX — FilmCraft Studio</span></div>
+        <div class="marquee-item"><img src="images/project-techzone-uiux.jpg" alt="TechZone E-Commerce UI" /><span>UI/UX — TechZone Store</span></div>
+        <div class="marquee-item"><img src="images/project-brewly-uiux.jpg" alt="Brewly Coffee Brand UI" /><span>UI/UX — Brewly Brand</span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-item"><img src="images/project-thumbnail-laptop.jpg" alt="Best Laptop for Students Thumbnail" /><span>YouTube — Best Laptop for Students</span></div>
+        <div class="marquee-item"><img src="images/thumb-best-laptop-2026.jpg" alt="Best Laptop 2026 Thumbnail" /><span>YouTube — Best Laptop 2026</span></div>
+        <div class="marquee-item"><img src="images/thumb-college-life.jpg" alt="College Life Vlog Thumbnail" /><span>YouTube — A Day in My College Life</span></div>
+        <div class="marquee-item"><img src="images/thumb-street-food.jpg" alt="Street Food Thumbnail" /><span>YouTube — Street Food Vlog</span></div>
+        <div class="marquee-item"><img src="images/thumb-suresh-bhau.jpg" alt="Suresh Bhau Marathi Thumbnail" /><span>YouTube — Suresh Bhau Cinematic</span></div>
+        <div class="marquee-item"><img src="images/thumb-goa-trip.jpg" alt="Goa Trip Travel Thumbnail" /><span>YouTube — Goa Trip Travel Vlog</span></div>
+        <div class="marquee-item"><img src="images/project-learno-uiux.jpg" alt="Learno UI Design" /><span>UI/UX — Learno Platform</span></div>
+        <div class="marquee-item"><img src="images/project-filmcraft-uiux.jpg" alt="FilmCraft Studio UI" /><span>UI/UX — FilmCraft Studio</span></div>
+        <div class="marquee-item"><img src="images/project-techzone-uiux.jpg" alt="TechZone E-Commerce UI" /><span>UI/UX — TechZone Store</span></div>
+        <div class="marquee-item"><img src="images/project-brewly-uiux.jpg" alt="Brewly Coffee Brand UI" /><span>UI/UX — Brewly Brand</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================
+       PORTFOLIO
+  ============================================================ -->
+  <section class="section portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">My Work</div>
+        <h2 class="section-title reveal-up">Portfolio <span class="gradient-text">Gallery</span></h2>
+        <p class="section-subtitle reveal-up">A selection of my design work across categories. Real project images coming soon.</p>
+      </div>
+      <div class="portfolio-filters reveal-up" id="portfolioFilters">
+        <button class="pf-btn active" data-filter="all">All</button>
+        <button class="pf-btn" data-filter="graphic">Graphic Design</button>
+        <button class="pf-btn" data-filter="social">Social Media</button>
+        <button class="pf-btn" data-filter="youtube">YouTube</button>
+        <button class="pf-btn" data-filter="branding">Branding</button>
+        <button class="pf-btn" data-filter="video">Video Editing</button>
+        <button class="pf-btn" data-filter="uiux">UI/UX</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Cards generated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Modal -->
+  <div class="portfolio-modal" id="portfolioModal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FEATURED PROJECT
+  ============================================================ -->
+  <section class="section featured-section" id="featured">
+    <div class="container">
+      <div class="featured-header">
+        <div class="section-label reveal-left">Featured Project</div>
+        <h2 class="featured-title reveal-left">INVENTOMANIA</h2>
+        <p class="featured-subtitle reveal-left">Event Branding & Creative Design</p>
+      </div>
+      <div class="featured-body">
+        <div class="featured-desc reveal-left">
+          <p>Created a complete visual identity and promotional creative system for a college technical event, including event creatives, promotional graphics and social media designs.</p>
+          <div class="featured-tags">
+            <span class="tag">Event Branding</span>
+            <span class="tag">Promotional Design</span>
+            <span class="tag">Social Media</span>
+            <span class="tag">Visual Identity</span>
+          </div>
+          <div class="featured-tools">
+            <strong>Tools:</strong> Adobe Photoshop · Canva · Illustrator
+          </div>
+        </div>
+        <div class="featured-gallery reveal-right" id="featuredGallery">
+          <div class="featured-scroll-track" id="featuredTrack">
+            <div class="featured-img-card">
+              <img src="images/inventomania-campus-experia.jpg" alt="INVENTOMANIA-11 Campus Experia Event Poster" class="featured-real-img" />
+              <div class="featured-img-label">Campus Experia — GD Round</div>
+            </div>
+            <div class="featured-img-card">
+              <img src="images/inventomania-matlab-mavericks.jpg" alt="INVENTOMANIA-11 MATLAB Mavericks Event Poster" class="featured-real-img" />
+              <div class="featured-img-label">MATLAB Mavericks — Technical Event</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FREELANCE
+  ============================================================ -->
+  <section class="section freelance-section" id="freelance">
+    <div class="freelance-bg-text">FREELANCE</div>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">Freelance Experience</div>
+        <h2 class="section-title reveal-up">From Idea to <span class="gradient-text">Final Visual</span></h2>
+        <p class="section-subtitle reveal-up">I have worked with different clients and requirements, creating custom visual content while maintaining quality, consistency and deadlines.</p>
+      </div>
+      <div class="freelance-stats">
+        <div class="fl-stat-card reveal-up" data-delay="0">
+          <div class="fl-number" data-target="147" data-suffix="+">0</div>
+          <div class="fl-label">Client Projects</div>
+          <div class="fl-sub">Delivered with quality</div>
+        </div>
+        <div class="fl-stat-card reveal-up" data-delay="150">
+          <div class="fl-number" data-target="4" data-suffix="+">0</div>
+          <div class="fl-label">Years Experience</div>
+          <div class="fl-sub">In Graphic Design</div>
+        </div>
+        <div class="fl-stat-card reveal-up" data-delay="300">
+          <div class="fl-number fl-rupee">₹12K+</div>
+          <div class="fl-label">Freelance Earned</div>
+          <div class="fl-sub">Real client revenue</div>
+        </div>
+      </div>
+      <div class="freelance-process">
+        <div class="fp-item reveal-left" data-delay="0">
+          <div class="fp-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 16h16M16 8v16" stroke="url(#fp1)" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="12" stroke="url(#fp1)" stroke-width="2"/><defs><linearGradient id="fp1" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <div>
+            <h4>Brief Understanding</h4>
+            <p>I listen carefully to client requirements before starting any work.</p>
+          </div>
+        </div>
+        <div class="fp-item reveal-left" data-delay="100">
+          <div class="fp-icon">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="18" rx="3" stroke="url(#fp2)" stroke-width="2"/><path d="M10 14h12M10 19h8" stroke="url(#fp2)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="fp2" x1="4" y1="8" x2="28" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <div>
+            <h4>Design & Revise</h4>
+            <p>I create designs, incorporate feedback and refine until the client is satisfied.</p>
+          </div>
+        </div>
+        <div class="fp-item reveal-left" data-delay="200">
+          <div class="fp-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 16l6 6 10-12" stroke="url(#fp3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="12" stroke="url(#fp3)" stroke-width="2"/><defs><linearGradient id="fp3" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <div>
+            <h4>Final Delivery</h4>
+            <p>Polished final files delivered on time in required formats.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VIDEO EDITING SHOWCASE
+  ============================================================ -->
+  <section class="section video-section" id="video">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">Video Work</div>
+        <h2 class="section-title reveal-up">Video <span class="gradient-text">Editing</span> Showcase</h2>
+        <p class="section-subtitle reveal-up">Watch real YouTube video edits, motion graphics, and cinematic travel reels directly below.</p>
+      </div>
+
+      <!-- Main Featured Interactive Player Container -->
+      <div class="video-featured-player reveal-up" id="mainVideoPlayerWrap">
+        <div class="vfp-iframe-wrap" id="mainVideoFrameWrap">
+          <img src="https://img.youtube.com/vi/6DfVc12iWgY/hqdefault.jpg" alt="Featured Video Thumbnail" id="mainVideoThumb" class="vfp-thumb" />
+          <div class="vfp-overlay" id="mainVideoOverlay">
+            <button class="vp-play-btn magnetic" id="mainVideoPlayBtn" data-video-id="6DfVc12iWgY" aria-label="Play Video">
+              <div class="vp-play-ring"></div>
+              <div class="vp-play-ring vp-ring-2"></div>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="vfp-info">
+              <span class="vfp-badge" id="mainVideoBadge">Birthday Video Editing</span>
+              <h3 class="vfp-title" id="mainVideoTitle">Cute Little Girl Birthday Video Editing — New Style Edit</h3>
+              <p class="vfp-author">Edited by <strong>Antariksh Sawarbandhe</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Video Grid Selector -->
+      <div class="video-cards-grid">
+        <!-- Video Card 1 -->
+        <div class="video-item-card active reveal-up" data-video-id="6DfVc12iWgY" data-title="Cute Little Girl Birthday Video Editing" data-badge="Birthday Edit" data-delay="0">
+          <div class="vic-thumb-wrap">
+            <img src="https://img.youtube.com/vi/6DfVc12iWgY/hqdefault.jpg" alt="Cute Little Girl Birthday Video Editing" class="vic-thumb" />
+            <div class="vic-play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vic-tag">Birthday Edit</span>
+          </div>
+          <div class="vic-details">
+            <h4 class="vic-title">Cute Little Girl Birthday Video Editing</h4>
+            <p class="vic-desc">Vibrant birthday celebration edit with smooth transitions &amp; custom typography.</p>
+            <div class="vic-tools">CapCut · Premiere Pro · After Effects</div>
+          </div>
+        </div>
+
+        <!-- Video Card 2 -->
+        <div class="video-item-card reveal-up" data-video-id="2dcN39ZYAxo" data-title="Happy Birthday Motion Video Background" data-badge="Motion Background" data-delay="150">
+          <div class="vic-thumb-wrap">
+            <img src="https://img.youtube.com/vi/2dcN39ZYAxo/hqdefault.jpg" alt="Happy Birthday Motion Video Background" class="vic-thumb" />
+            <div class="vic-play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vic-tag tag-purple">Motion BG</span>
+          </div>
+          <div class="vic-details">
+            <h4 class="vic-title">Happy Birthday Motion Video Background</h4>
+            <p class="vic-desc">Glowing golden particles &amp; festive 3D motion graphic background template.</p>
+            <div class="vic-tools">After Effects · Premiere Pro</div>
+          </div>
+        </div>
+
+        <!-- Video Card 3 -->
+        <div class="video-item-card reveal-up" data-video-id="JLtaOS0UBQw" data-title="Gose Dam Bhandara Pauni Water Sight — Travel Reel" data-badge="Cinematic Reel" data-delay="300">
+          <div class="vic-thumb-wrap">
+            <img src="https://img.youtube.com/vi/JLtaOS0UBQw/hqdefault.jpg" alt="Gose Dam Bhandara Pauni Water Sight Travel Reel" class="vic-thumb" />
+            <div class="vic-play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vic-tag tag-cyan">Cinematic Reel</span>
+          </div>
+          <div class="vic-details">
+            <h4 class="vic-title">Gose Dam Bhandara Pauni Water Sight</h4>
+            <p class="vic-desc">Teal &amp; orange color-graded cinematic travel reel with speed ramping &amp; sound design.</p>
+            <div class="vic-tools">Premiere Pro · CapCut · DaVinci</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-tools reveal-up" style="margin-top: 40px;">
+        <div class="vt-tool-badge">
+          <div class="vtb-dot vtb-ae"></div>After Effects
+        </div>
+        <div class="vt-tool-badge">
+          <div class="vtb-dot vtb-pr"></div>Premiere Pro
+        </div>
+        <div class="vt-tool-badge">
+          <div class="vtb-dot vtb-dv"></div>CapCut &amp; DaVinci Resolve
+        </div>
+      </div>
+
+      <div class="video-cta reveal-up">
+        <a href="https://www.youtube.com/channel/UCLKsjuwTkm-m-7ZP7MumX9A" target="_blank" class="btn-primary magnetic" data-magnetic style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Visit YouTube Channel</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TOOLS
+  ============================================================ -->
+  <section class="section tools-section" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">My Toolkit</div>
+        <h2 class="section-title reveal-up">Tools I <span class="gradient-text">Create With</span></h2>
+      </div>
+      <canvas id="toolsCanvas"></canvas>
+      <div class="tools-grid">
+        <div class="tool-card tilt-card reveal-up" data-delay="0">
+          <div class="tool-icon figma-icon">
+            <svg viewBox="0 0 38 57" fill="none"><path d="M19 28.5A9.5 9.5 0 0119 9.5h9.5A9.5 9.5 0 1119 28.5z" fill="#0ACF83"/><path d="M9.5 47.5A9.5 9.5 0 019.5 28.5H19v9.5a9.5 9.5 0 01-9.5 9.5z" fill="#0ACF83"/><path d="M9.5 28.5A9.5 9.5 0 019.5 9.5H19v19H9.5z" fill="#F24E1E"/><path d="M19 28.5h9.5a9.5 9.5 0 010 19H19v-19z" fill="#FF7262"/><path d="M28.5 28.5a9.5 9.5 0 110-19 9.5 9.5 0 010 19z" fill="#1ABCFE"/></svg>
+          </div>
+          <div class="tool-name">Figma</div>
+          <div class="tool-use">UI/UX Design</div>
+        </div>
+        <div class="tool-card tilt-card reveal-up" data-delay="100">
+          <div class="tool-icon canva-icon">
+            <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="50" fill="#00C4CC"/><path d="M72.8 58.5c-1.4 2.7-3.4 5-5.8 6.8-2.5 1.8-5.2 2.8-8.1 2.8-3.1 0-5.8-.9-8.1-2.6-2.3-1.7-3.9-4-4.8-6.9-.9 2.9-2.4 5.2-4.7 6.9-2.3 1.7-5 2.6-8.1 2.6-2.4 0-4.7-.6-6.7-1.9-2-1.3-3.6-3-4.7-5.2-1.1-2.2-1.7-4.6-1.7-7.3 0-4.1 1.1-7.6 3.3-10.4 2.2-2.8 5.1-4.3 8.6-4.3 2.5 0 4.7.7 6.6 2.2 1.9 1.5 3.3 3.5 4.3 6.2V28h8v31c0 2.8.8 4.9 2.5 6.2 1.7 1.4 3.6 2 5.8 2 2.4 0 4.4-.8 6.1-2.4 1.7-1.6 2.5-3.8 2.5-6.7 0-3-.9-5.3-2.6-6.9-1.8-1.6-4-2.4-6.7-2.4h-1.6V42h2.2c5.1 0 9.3 1.6 12.5 4.7 3.2 3.1 4.8 7.2 4.8 12.3 0 0 0-.3-.1-.5z" fill="white"/></svg>
+          </div>
+          <div class="tool-name">Canva</div>
+          <div class="tool-use">Graphic Design</div>
+        </div>
+        <div class="tool-card tilt-card reveal-up" data-delay="200">
+          <div class="tool-icon ps-icon">
+            <svg viewBox="0 0 100 100" fill="none"><rect width="100" height="100" rx="20" fill="#001E36"/><path d="M30 65V35h11.5c3.5 0 6.2 1 8.2 2.9 2 1.9 3 4.6 3 8 0 3.5-1 6.3-3.1 8.2-2 2-5 2.9-8.9 2.9H38V65H30zm8-11.5h2.8c1.8 0 3.2-.5 4.2-1.4 1-1 1.5-2.4 1.5-4.3 0-1.8-.5-3.1-1.4-4.1-.9-.9-2.3-1.4-4.2-1.4H38v11.2zM56 58.5c.3 1.3.9 2.3 1.8 3 .9.7 2.1 1 3.5 1 1.4 0 2.5-.4 3.3-1.1.8-.7 1.2-1.6 1.2-2.7 0-1-.3-1.8-1-2.4-.7-.6-1.9-1.1-3.8-1.5-3.3-.8-5.6-1.8-7-3-1.4-1.2-2.1-2.8-2.1-4.9 0-2.4.9-4.3 2.6-5.7 1.7-1.4 4-2.1 6.8-2.1 2.9 0 5.2.7 6.8 2.1 1.7 1.4 2.6 3.3 2.8 5.7h-7.5c-.1-1.1-.5-1.9-1.2-2.5-.7-.6-1.6-.9-2.8-.9-1.1 0-2 .3-2.6.8-.6.5-.9 1.3-.9 2.2 0 .8.3 1.5 1 2 .7.5 1.9 1 3.8 1.4 3.2.7 5.5 1.7 7 3 1.5 1.3 2.2 3 2.2 5.1 0 2.5-.9 4.5-2.8 6-1.9 1.5-4.4 2.2-7.6 2.2-3.1 0-5.6-.8-7.3-2.3-1.8-1.5-2.7-3.6-2.8-6.4H56z" fill="#31A8FF"/></svg>
+          </div>
+          <div class="tool-name">Photoshop</div>
+          <div class="tool-use">Image Editing</div>
+        </div>
+        <div class="tool-card tilt-card reveal-up" data-delay="300">
+          <div class="tool-icon ae-icon">
+            <svg viewBox="0 0 100 100" fill="none"><rect width="100" height="100" rx="20" fill="#00005B"/><path d="M37 65L44.8 35h8.4L61 65h-8l-1.5-6H46.5l-1.5 6H37zm11-12h6l-3-13-3 13zM63 65V35h11c3.8 0 6.7 1 8.8 3 2.1 2 3.2 4.8 3.2 8.3 0 3.6-1.1 6.5-3.2 8.5-2.1 2-5.1 3.1-8.9 3.1H71V65h-8zm8-12.5h2.5c1.7 0 3-.5 3.9-1.5.9-1 1.4-2.4 1.4-4.2 0-1.7-.5-3.1-1.4-4-.9-1-2.2-1.4-4-1.4H71v11.1z" fill="#9999FF"/></svg>
+          </div>
+          <div class="tool-name">After Effects</div>
+          <div class="tool-use">Motion & Animation</div>
+        </div>
+        <div class="tool-card tilt-card reveal-up" data-delay="400">
+          <div class="tool-icon pr-icon">
+            <svg viewBox="0 0 100 100" fill="none"><rect width="100" height="100" rx="20" fill="#00005B"/><path d="M30 65V35h11.5c3.5 0 6.2 1 8.2 2.9 2 1.9 3 4.6 3 8 0 3.5-1 6.3-3.1 8.2-2 2-5 2.9-8.9 2.9H38V65H30zm8-11.5h2.8c1.8 0 3.2-.5 4.2-1.4 1-1 1.5-2.4 1.5-4.3 0-1.8-.5-3.1-1.4-4.1-.9-.9-2.3-1.4-4.2-1.4H38v11.2z" fill="#9999FF"/><path d="M55 65V35h8v30H55z" fill="#9999FF"/></svg>
+          </div>
+          <div class="tool-name">Premiere Pro</div>
+          <div class="tool-use">Video Editing</div>
+        </div>
+        <div class="tool-card tilt-card reveal-up" data-delay="500">
+          <div class="tool-icon dv-icon">
+            <svg viewBox="0 0 100 100" fill="none"><rect width="100" height="100" rx="20" fill="#1A1A2E"/><circle cx="50" cy="50" r="28" stroke="#F5A623" stroke-width="6"/><circle cx="50" cy="50" r="14" fill="#F5A623"/><circle cx="50" cy="50" r="6" fill="#1A1A2E"/></svg>
+          </div>
+          <div class="tool-name">DaVinci Resolve</div>
+          <div class="tool-use">Color & Editing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+  ============================================================ -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">How I Work</div>
+        <h2 class="section-title reveal-up">My Design <span class="gradient-text">Process</span></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal-left" data-delay="0">
+          <div class="ps-number">01</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Understand</h3>
+            <p class="ps-desc">Understand the brief, goals and requirements from the client.</p>
+          </div>
+          <div class="ps-line"></div>
+        </div>
+        <div class="process-step reveal-right" data-delay="100">
+          <div class="ps-number">02</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Research</h3>
+            <p class="ps-desc">Explore references, understand the target audience and define visual direction.</p>
+          </div>
+          <div class="ps-line"></div>
+        </div>
+        <div class="process-step reveal-left" data-delay="200">
+          <div class="ps-number">03</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Concept</h3>
+            <p class="ps-desc">Develop creative ideas and visual concepts that align with the objective.</p>
+          </div>
+          <div class="ps-line"></div>
+        </div>
+        <div class="process-step reveal-right" data-delay="300">
+          <div class="ps-number">04</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Design</h3>
+            <p class="ps-desc">Create and refine the final design with attention to detail and visual quality.</p>
+          </div>
+          <div class="ps-line"></div>
+        </div>
+        <div class="process-step reveal-left" data-delay="400">
+          <div class="ps-number">05</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Feedback</h3>
+            <p class="ps-desc">Take feedback from the client and improve the design accordingly.</p>
+          </div>
+          <div class="ps-line"></div>
+        </div>
+        <div class="process-step reveal-right" data-delay="500">
+          <div class="ps-number">06</div>
+          <div class="ps-content">
+            <h3 class="ps-title">Deliver</h3>
+            <p class="ps-desc">Provide polished final creatives in the required formats, on time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY WORK WITH ME
+  ============================================================ -->
+  <section class="section why-section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up">The Advantage</div>
+        <h2 class="section-title reveal-up">Why Work <span class="gradient-text">With Me</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card tilt-card reveal-up" data-delay="0">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" stroke="url(#wg1)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="wg1" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Creative Thinking</h4>
+          <p>I approach each project with fresh ideas and a creative perspective.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="75">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="url(#wg2)" stroke-width="2"/><path d="M10 16l4 4 8-8" stroke="url(#wg2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="wg2" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Attention to Detail</h4>
+          <p>Every pixel, alignment and colour choice is carefully considered.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="150">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 20V12l8-6 8 6v8l-8 6-8-6z" stroke="url(#wg3)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="wg3" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Fast Learning</h4>
+          <p>I adapt quickly to new tools, styles and project requirements.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="225">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M4 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="url(#wg4)" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="10" r="5" stroke="url(#wg4)" stroke-width="2"/><defs><linearGradient id="wg4" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Client Communication</h4>
+          <p>I communicate clearly and keep clients updated throughout the process.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="300">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="url(#wg5)" stroke-width="2"/><path d="M16 8v8l5 3" stroke="url(#wg5)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="wg5" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Deadline Management</h4>
+          <p>I respect timelines and consistently deliver work on schedule.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="375">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M6 16c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10" stroke="url(#wg6)" stroke-width="2" stroke-linecap="round"/><path d="M6 16h4M22 16h4" stroke="url(#wg6)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="wg6" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Adaptability</h4>
+          <p>I work across styles — bold, minimal, corporate, creative — with equal comfort.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="450">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M4 26L16 6l12 20H4z" stroke="url(#wg7)" stroke-width="2" stroke-linejoin="round"/><path d="M16 14v6M16 22v2" stroke="url(#wg7)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="wg7" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Visual Storytelling</h4>
+          <p>My designs communicate messages clearly and with visual impact.</p>
+        </div>
+        <div class="why-card tilt-card reveal-up" data-delay="525">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 16l4 4 12-12" stroke="url(#wg8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="wg8" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+          </div>
+          <h4>Feedback Friendly</h4>
+          <p>I welcome constructive feedback and use it to improve the final output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-bg-glow"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="section-label reveal-left">Get In Touch</div>
+          <h2 class="contact-heading reveal-left">Let's Create<br /><span class="gradient-text">Something Great</span></h2>
+          <p class="contact-desc reveal-left">Have a project, creative requirement or collaboration idea? Let's connect and bring your vision to life.</p>
+          <div class="contact-info">
+            <a href="mailto:techg5847@gmail.com" class="contact-email reveal-left magnetic" data-magnetic>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              techg5847@gmail.com
+            </a>
+            <div class="contact-social reveal-left">
+              <a href="https://www.youtube.com/channel/UCLKsjuwTkm-m-7ZP7MumX9A" target="_blank" class="social-link magnetic" data-magnetic aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/antarikshsawarbandhe-b53280288" target="_blank" class="social-link magnetic" data-magnetic aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://github.com/AntarikshSawarbandhe" target="_blank" class="social-link magnetic" data-magnetic aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right reveal-right">
+          <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Your Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@company.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Your Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about your project or requirement..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full magnetic" data-magnetic id="submitBtn">
+              <span id="submitText">Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              ✓ Message noted! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">[AS]</div>
+          <div class="footer-name">Antariksh Sawarbandhe</div>
+          <div class="footer-tagline">Graphic Designer • Visual Designer • Video Editor • Freelancer</div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-col">
+            <span class="fl-col-title">Navigation</span>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-links-col">
+            <span class="fl-col-title">Social</span>
+            <a href="https://www.youtube.com/channel/UCLKsjuwTkm-m-7ZP7MumX9A" target="_blank">YouTube</a>
+            <a href="https://www.linkedin.com/in/antarikshsawarbandhe-b53280288" target="_blank">LinkedIn</a>
+            <a href="https://github.com/AntarikshSawarbandhe" target="_blank">GitHub</a>
+          </div>
+          <div class="footer-links-col">
+            <span class="fl-col-title">Contact</span>
+            <a href="mailto:techg5847@gmail.com">Email Me</a>
+            <span class="footer-location">Nagpur, Maharashtra</span>
+            <span class="footer-location">India</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2024 Antariksh Sawarbandhe. Designed & Developed by Antariksh Sawarbandhe.
+        </div>
+        <div class="footer-madewith">
+          Made with passion for design.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
